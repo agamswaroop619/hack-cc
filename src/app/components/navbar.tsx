@@ -22,7 +22,7 @@ const NavbarButton = styled(Button)({
     height: "2px",
     left: "0",
     bottom: "-2px",
-    backgroundColor: "#FFED47",
+    backgroundColor: "#4759FF",
     transition: "width 0.3s ease-in-out",
   },
 });

@@ -1,10 +1,14 @@
+// pages/index.tsx
+
+import React from "react";
 import Navbar from "./components/navbar";
+import DaysLeft from "./components/daysleft";
 
 const Home: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <h1>Welcome to the Home Page</h1>
+      <DaysLeft value={85} />
     </div>
   );
 };
