@@ -4,7 +4,6 @@ import {
   TextField,
   Button,
   Typography,
-  Container,
   Box,
   Link,
   Stepper,
@@ -218,7 +217,7 @@ const styles = {
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     overflow: "hidden",
-    width: "100%",
+    width: "80%",
     display: "flex",
   },
   leftSide: {
