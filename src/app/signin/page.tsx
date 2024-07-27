@@ -11,6 +11,8 @@ import {
   StepLabel,
 } from "@mui/material";
 import axios from "axios";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./SignIn.css";
 
 const steps = ["Username", "Password", "Name", "Email"];
 
@@ -67,6 +69,122 @@ export default function SignIn() {
     }
   };
 
+  const renderStepContent = () => {
+    switch (step) {
+      case 0:
+        return (
+          <Box sx={styles.stepBox}>
+            <TextField
+              label="Enter your Username"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              error={!!errors.username}
+              helperText={errors.username}
+              sx={styles.textField}
+            />
+            <Box mt={2}>
+              <Button
+                variant="contained"
+                fullWidth
+                sx={styles.button}
+                onClick={handleNextClick}
+              >
+                Next
+              </Button>
+            </Box>
+          </Box>
+        );
+      case 1:
+        return (
+          <Box sx={styles.stepBox}>
+            <TextField
+              label="Enter your Password"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              error={!!errors.password}
+              helperText={errors.password}
+              sx={styles.textField}
+            />
+            <Box mt={2}>
+              <Button
+                variant="contained"
+                fullWidth
+                sx={styles.button}
+                onClick={handleNextClick}
+              >
+                Next
+              </Button>
+            </Box>
+          </Box>
+        );
+      case 2:
+        return (
+          <Box sx={styles.stepBox}>
+            <TextField
+              label="Enter your Name"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              error={!!errors.name}
+              helperText={errors.name}
+              sx={styles.textField}
+            />
+            <Box mt={2}>
+              <Button
+                variant="contained"
+                fullWidth
+                sx={styles.button}
+                onClick={handleNextClick}
+              >
+                Next
+              </Button>
+            </Box>
+          </Box>
+        );
+      case 3:
+        return (
+          <Box sx={styles.stepBox}>
+            <TextField
+              label="Enter your Email"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
+              sx={styles.textField}
+            />
+            <Box mt={2}>
+              <Button
+                variant="contained"
+                fullWidth
+                sx={styles.button}
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            </Box>
+          </Box>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div style={styles.container}>
       <Box sx={styles.box}>
@@ -88,114 +206,11 @@ export default function SignIn() {
             ))}
           </Stepper>
           <Box sx={styles.innerBox}>
-            {step === 0 && (
-              <Box sx={styles.stepBox}>
-                <TextField
-                  label="Enter your Username"
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  error={!!errors.username}
-                  helperText={errors.username}
-                  sx={styles.textField}
-                />
-                <Link href="#" variant="body2" sx={styles.link}>
-                  Forgot Username?
-                </Link>
-                <Box mt={2}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={styles.button}
-                    onClick={handleNextClick}
-                  >
-                    Next
-                  </Button>
-                </Box>
-              </Box>
-            )}
-            {step === 1 && (
-              <Box sx={styles.stepBox}>
-                <TextField
-                  label="Enter your Password"
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  error={!!errors.password}
-                  helperText={errors.password}
-                  sx={styles.textField}
-                />
-                <Box mt={2}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={styles.button}
-                    onClick={handleNextClick}
-                  >
-                    Next
-                  </Button>
-                </Box>
-              </Box>
-            )}
-            {step === 2 && (
-              <Box sx={styles.stepBox}>
-                <TextField
-                  label="Enter your Name"
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  error={!!errors.name}
-                  helperText={errors.name}
-                  sx={styles.textField}
-                />
-                <Box mt={2}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={styles.button}
-                    onClick={handleNextClick}
-                  >
-                    Next
-                  </Button>
-                </Box>
-              </Box>
-            )}
-            {step === 3 && (
-              <Box sx={styles.stepBox}>
-                <TextField
-                  label="Enter your Email"
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  error={!!errors.email}
-                  helperText={errors.email}
-                  sx={styles.textField}
-                />
-                <Box mt={2}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={styles.button}
-                    onClick={handleSubmit}
-                  >
-                    Submit
-                  </Button>
-                </Box>
-              </Box>
-            )}
+            <TransitionGroup>
+              <CSSTransition key={step} classNames="fade" timeout={300}>
+                {renderStepContent()}
+              </CSSTransition>
+            </TransitionGroup>
           </Box>
         </Box>
       </Box>
