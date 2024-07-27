@@ -1,14 +1,20 @@
-import React from "react";
 import Navbar from "./components/navbar";
-import DaysLeft from "./components/daysleft";
+import MyApp from "react-calendar";
+import SimpleSlider from "./components/Slider";
 
-const Home: React.FC = () => {
+function App() {
   return (
-    <div>
+    <div className="App bg-white text-black">
       <Navbar />
-      <DaysLeft value={85} />
+      <div className="flex gap-2">
+        <SimpleSlider />
+      </div>
+
+      <div>
+        <MyApp />
+      </div>
     </div>
   );
-};
+}
 
-export default Home;
+export default App;
