@@ -13,6 +13,7 @@ import {
 import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import "./SignIn.css"; // Import the CSS file for animations
 
 const steps = ["Username", "Password", "Name", "Email"];
@@ -26,6 +27,7 @@ export default function SignIn() {
     email: "",
   });
   const [errors, setErrors] = useState<any>({});
+  const router = useRouter(); // Initialize useRouter
 
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -74,6 +76,7 @@ export default function SignIn() {
         );
         toast.success("Registration successful!");
         console.log(response.data);
+        router.push("/courses"); // Redirect to /courses on success
       } catch (error) {
         toast.error("Registration failed. Please try again.");
         console.error(error);
