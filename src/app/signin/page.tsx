@@ -14,7 +14,6 @@ import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import toast, { Toaster } from "react-hot-toast";
 import "./SignIn.css"; // Import the CSS file for animations
-import { padding } from "@mui/system";
 
 const steps = ["Username", "Password", "Name", "Email"];
 
@@ -99,10 +98,9 @@ export default function SignIn() {
               helperText={errors.username}
               sx={styles.textField}
             />
-            <Box mt={2}>
+            <Box mt={2} sx={styles.buttonContainer}>
               <Button
                 variant="contained"
-                fullWidth
                 sx={styles.button}
                 onClick={handleNextClick}
               >
@@ -127,10 +125,9 @@ export default function SignIn() {
               helperText={errors.password}
               sx={styles.textField}
             />
-            <Box mt={2}>
+            <Box mt={2} sx={styles.buttonContainer}>
               <Button
                 variant="contained"
-                fullWidth
                 sx={styles.button}
                 onClick={handleNextClick}
               >
@@ -154,10 +151,9 @@ export default function SignIn() {
               helperText={errors.name}
               sx={styles.textField}
             />
-            <Box mt={2}>
+            <Box mt={2} sx={styles.buttonContainer}>
               <Button
                 variant="contained"
-                fullWidth
                 sx={styles.button}
                 onClick={handleNextClick}
               >
@@ -181,10 +177,9 @@ export default function SignIn() {
               helperText={errors.email}
               sx={styles.textField}
             />
-            <Box mt={2}>
+            <Box mt={2} sx={styles.buttonContainer}>
               <Button
                 variant="contained"
-                fullWidth
                 sx={styles.button}
                 onClick={handleSubmit}
               >
@@ -276,6 +271,11 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "flex-end",
+    width: "100%",
   },
   logo: {
     height: "50px",
