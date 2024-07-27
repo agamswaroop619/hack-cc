@@ -13,8 +13,8 @@ import {
 import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import toast, { Toaster } from "react-hot-toast";
-import { useRouter } from "next/navigation"; // Import useRouter for navigation
-import "./SignIn.css"; // Import the CSS file for animations
+import { useRouter } from "next/navigation";
+import "./SignIn.css";
 
 const steps = ["Username", "Password", "Name", "Email"];
 

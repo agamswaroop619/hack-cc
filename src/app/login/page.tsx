@@ -12,7 +12,7 @@ import {
 import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import toast, { Toaster } from "react-hot-toast";
-import "./SignIn.css"; // Import the CSS file for animations
+import "./SignIn.css";
 
 const steps = ["Username", "Password"];
 

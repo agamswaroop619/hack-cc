@@ -1,9 +1,17 @@
 "use client";
 import React from "react";
-import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Box,
+  Avatar,
+  IconButton,
+} from "@mui/material";
 import { Home, School, Event, Settings } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import { styled } from "@mui/system";
+import Image from "next/image"; // Assuming you are using Next.js Image component
 
 const NavbarButton = styled(Button)({
   position: "relative",
@@ -44,12 +52,25 @@ const Navbar: React.FC = () => {
           <NavbarButton onClick={() => handleNavigation("/courses")}>
             <School style={{ marginRight: "8px" }} /> Courses
           </NavbarButton>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Image
+              src="/mnt/data/image.png"
+              alt="Logo"
+              width={50}
+              height={50}
+            />
+          </Box>
           <NavbarButton onClick={() => handleNavigation("/attendance")}>
             <Event style={{ marginRight: "8px" }} /> Attendance
           </NavbarButton>
           <NavbarButton onClick={() => handleNavigation("/settings")}>
             <Settings style={{ marginRight: "8px" }} /> Settings
           </NavbarButton>
+        </Box>
+        <Box>
+          <IconButton>
+            <Avatar style={{ backgroundColor: "#ccc" }}>AS</Avatar>
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
