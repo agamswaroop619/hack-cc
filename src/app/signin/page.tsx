@@ -50,7 +50,7 @@ export default function SignIn() {
   };
 
   return (
-    <Container sx={styles.container}>
+    <div style={styles.container}>
       <Box sx={styles.box}>
         <Box sx={styles.leftSide}>
           <img src="/logo.png" alt="Logo" style={styles.logo} />
@@ -163,7 +163,7 @@ export default function SignIn() {
           </Box>
         </Box>
       </Box>
-    </Container>
+    </div>
   );
 }
 
