@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "EduFusion",
-  description: "Self Study Tutoring APP",
+  description: "A Self Study Tutoring App",
 };
 
 export default function RootLayout({
