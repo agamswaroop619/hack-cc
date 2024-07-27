@@ -49,19 +49,14 @@ const Navbar: React.FC = () => {
           <NavbarButton onClick={() => handleNavigation("/")}>
             <Home style={{ marginRight: "8px" }} /> Home
           </NavbarButton>
-          <NavbarButton onClick={() => handleNavigation("/courses")}>
-            <School style={{ marginRight: "8px" }} /> Courses
-          </NavbarButton>
-          <Box display="flex" justifyContent="center" alignItems="center">
-            <Image
-              src="/mnt/data/image.png"
-              alt="Logo"
-              width={50}
-              height={50}
-            />
-          </Box>
           <NavbarButton onClick={() => handleNavigation("/attendance")}>
             <Event style={{ marginRight: "8px" }} /> Attendance
+          </NavbarButton>
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Image src="/logo.png" alt="Logo" width={50} height={50} />
+          </Box>
+          <NavbarButton onClick={() => handleNavigation("/courses")}>
+            <School style={{ marginRight: "8px" }} /> Courses
           </NavbarButton>
           <NavbarButton onClick={() => handleNavigation("/settings")}>
             <Settings style={{ marginRight: "8px" }} /> Settings
@@ -69,7 +64,15 @@ const Navbar: React.FC = () => {
         </Box>
         <Box>
           <IconButton>
-            <Avatar style={{ backgroundColor: "#ccc" }}>AS</Avatar>
+            <Avatar
+              style={{
+                backgroundColor: "#ccc",
+                border: "1px solid black",
+                color: "gray",
+              }}
+            >
+              AS
+            </Avatar>
           </IconButton>
         </Box>
       </Toolbar>
