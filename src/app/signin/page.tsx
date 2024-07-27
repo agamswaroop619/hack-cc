@@ -12,7 +12,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "./SignIn.css";
+import toast, { Toaster } from "react-hot-toast";
+import "./SignIn.css"; // Import the CSS file for animations
 
 const steps = ["Username", "Password", "Name", "Email"];
 
@@ -26,6 +27,11 @@ export default function SignIn() {
   });
   const [errors, setErrors] = useState<any>({});
 
+  const validateEmail = (email: string) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
   const validateStep = () => {
     let newErrors: any = {};
     if (step === 0 && !formData.username)
@@ -33,7 +39,11 @@ export default function SignIn() {
     if (step === 1 && !formData.password)
       newErrors.password = "Password is required";
     if (step === 2 && !formData.name) newErrors.name = "Name is required";
-    if (step === 3 && !formData.email) newErrors.email = "Email is required";
+    if (step === 3 && !formData.email) {
+      newErrors.email = "Email is required";
+    } else if (step === 3 && !validateEmail(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -62,8 +72,10 @@ export default function SignIn() {
             },
           }
         );
+        toast.success("Registration successful!");
         console.log(response.data);
       } catch (error) {
+        toast.error("Registration failed. Please try again.");
         console.error(error);
       }
     }
@@ -187,6 +199,7 @@ export default function SignIn() {
 
   return (
     <div style={styles.container}>
+      <Toaster />
       <Box sx={styles.box}>
         <Box sx={styles.leftSide}>
           <img src="/logo.png" alt="Logo" style={styles.logo} />
