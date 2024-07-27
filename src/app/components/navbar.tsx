@@ -66,9 +66,10 @@ const Navbar: React.FC = () => {
           <IconButton>
             <Avatar
               style={{
-                backgroundColor: "#ccc",
+                backgroundColor: "#BFE5FE",
                 border: "1px solid black",
-                color: "gray",
+                color: "black",
+                fontSize: "16px",
               }}
             >
               AS
