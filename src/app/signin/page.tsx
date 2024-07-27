@@ -14,6 +14,7 @@ import axios from "axios";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import toast, { Toaster } from "react-hot-toast";
 import "./SignIn.css"; // Import the CSS file for animations
+import { padding } from "@mui/system";
 
 const steps = ["Username", "Password", "Name", "Email"];
 
@@ -241,6 +242,7 @@ const styles = {
     justifyContent: "center",
   },
   box: {
+    paddingTop: "2rem",
     backgroundColor: "white",
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
